@@ -6,7 +6,7 @@ class Main extends React.Component {
     return this.props.dices.map((dice, i) => {
       return (
         <div key={i} className="dice">
-          <h1>{dice === null ? "holder" : dice}</h1>
+          <h1>{dice === null ? "holder" : dice + 1}</h1>
         </div>
       );
     });
@@ -18,12 +18,12 @@ class Main extends React.Component {
         <div className="dices">{this.renderDices()}</div>
         <button
           onClick={() => {
-            console.log("clicks");
             this.props.diceRoll();
           }}>
           Roll Dice
         </button>
         <button onClick={() => this.props.hold("Please Hold")}>Hold</button>
+        <p>Points to win {this.props.targetPoints}</p>
       </div>
     );
   }

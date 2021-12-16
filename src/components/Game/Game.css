@@ -1,6 +1,5 @@
 .Game {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  justify-content: space-evenly;
+  gap: 3rem;
 }

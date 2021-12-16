@@ -6,7 +6,7 @@ class Player extends React.Component {
     this.state = { active: this.props.active };
   }
   isActive = () => {
-    if (this.state.active) {
+    if (this.props.active) {
       return <h4>Active</h4>;
     }
   };
