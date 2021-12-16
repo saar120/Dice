@@ -74,19 +74,29 @@ class Game extends React.Component {
       }
     });
   };
-  checkForWinner = () => {};
   handleHold = () => {
     this.updateGlobalScore();
     this.changePlayersTurn();
   };
 
+  checkForWinner = () => {
+    if (
+      this.state.players[0].globalScore >= this.state.pointsToWin ||
+      this.state.players[1].globalScore >= this.state.pointsToWin
+    ) {
+      this.setState({ winner: true });
+    }
+  };
   updateGlobalScore = () => {
     const { players } = this.state;
     players.forEach((player, i) => {
       if (player.active) {
-        this.setState((prevState) => {
-          return (prevState.players[i].globalScore += player.currentScore);
-        });
+        this.setState(
+          (prevState) => {
+            return (prevState.players[i].globalScore += player.currentScore);
+          },
+          () => this.checkForWinner()
+        );
         this.setState((prevState) => {
           return (prevState.players[i].currentScore = 0);
         });
@@ -119,6 +129,7 @@ class Game extends React.Component {
           targetPoints={this.state.pointsToWin}
         />
         {this.renderPlayer(1)}
+        {this.state.winner && <h1>winner</h1>}
       </div>
     );
   }
