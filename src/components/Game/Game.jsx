@@ -1,6 +1,7 @@
 import React from "react";
-import Player from "./Player";
-import Main from "./Main";
+import "../Game/Game.css";
+import Player from "../Player/Player";
+import Main from "../Main/Main";
 
 class Game extends React.Component {
   constructor(props) {
@@ -25,8 +26,18 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Main />
+      <div className="Game">
+        <Main
+          newGame={(data) => {
+            console.log(data);
+          }}
+          diceRoll={(data) => {
+            console.log(data);
+          }}
+          hold={(data) => {
+            console.log(data);
+          }}
+        />
         <div style={{ display: "flex", gap: "1rem" }}>{this.renderPlayers()}</div>
       </div>
     );
