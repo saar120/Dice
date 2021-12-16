@@ -2,9 +2,6 @@ import React from "react";
 import "../Main/Main.css";
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   renderDices = () => {
     return this.props.dices.map((dice, i) => {
       return (
