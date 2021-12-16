@@ -16,22 +16,18 @@ class Game extends React.Component {
       ],
     };
   }
+  renderPlayers() {
+    return this.state.players.map((player) => {
+      return (
+        <Player id={player.id} key={player.id} currentScore={player.currentScore} globalScore={player.globalScore} />
+      );
+    });
+  }
   render() {
     return (
       <div>
         <Main />
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Player
-            id={this.state.players[0].id}
-            currentScore={this.state.players[0].currentScore}
-            globalScore={this.state.players[0].globalScore}
-          />
-          <Player
-            id={this.state.players[1].id}
-            currentScore={this.state.players[1].currentScore}
-            globalScore={this.state.players[1].globalScore}
-          />
-        </div>
+        <div style={{ display: "flex", gap: "1rem" }}>{this.renderPlayers()}</div>
       </div>
     );
   }
