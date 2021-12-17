@@ -42,7 +42,12 @@ class Main extends React.Component {
         <button className="button" onClick={() => this.props.hold("Please Hold")}>
           Hold
         </button>
-        <p>Points to win {this.props.targetPoints}</p>
+        <p>
+          Points to win
+          <br />
+          <br />
+          {this.props.targetPoints}
+        </p>
       </div>
     );
   }

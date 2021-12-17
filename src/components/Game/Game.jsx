@@ -11,7 +11,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointsToWin: 30,
+      pointsToWin: 100,
       dices: [null, null],
       winner: false,
       players: [
