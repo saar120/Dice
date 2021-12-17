@@ -20,19 +20,6 @@ class Game extends React.Component {
       ],
     };
   }
-  renderPlayers = () => {
-    return this.state.players.map((player) => {
-      return (
-        <Player
-          id={player.id}
-          key={player.id}
-          currentScore={player.currentScore}
-          globalScore={player.globalScore}
-          active={player.active}
-        />
-      );
-    });
-  };
   renderPlayer = (id) => {
     const { players } = this.state;
     return (
@@ -44,6 +31,19 @@ class Game extends React.Component {
         active={players[id].active}
       />
     );
+  };
+  newGameHandler = () => {
+    this.resetGame();
+  };
+  resetGame = () => {
+    this.setState({
+      dices: [null, null],
+      winner: false,
+      players: [
+        { id: 0, currentScore: 0, globalScore: 0, active: true },
+        { id: 1, currentScore: 0, globalScore: 0, active: false },
+      ],
+    });
   };
 
   handleDiceRoll = () => {
@@ -61,7 +61,6 @@ class Game extends React.Component {
       if (player.active) {
         const dicesSum = dices.reduce((a, b) => a + b, 0) + 2;
         if (dicesSum / 2 === dices[0] + 1 && dices[0] != null) {
-          console.log("FUCK");
           this.setState((prevState) => {
             return (prevState.players[i].currentScore = 0);
           });
@@ -116,8 +115,8 @@ class Game extends React.Component {
       <div className="Game">
         {this.renderPlayer(0)}
         <Main
-          newGame={(data) => {
-            console.log(data);
+          newGame={() => {
+            this.newGameHandler();
           }}
           diceRoll={() => {
             this.handleDiceRoll();

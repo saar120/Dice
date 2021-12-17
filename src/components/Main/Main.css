@@ -12,8 +12,29 @@
 }
 
 .dice {
-  height: 5rem;
-  width: 5rem;
-  padding: 1rem;
-  border: 1px solid red;
+  height: 6rem;
+  width: 6rem;
+}
+
+.waiting-dice {
+  background: url("../Main/assets/images/ezgif.com-gif-maker.gif") no-repeat center center / cover;
+}
+
+.dice1 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-one.png") no-repeat center center / cover;
+}
+.dice2 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-two.png") no-repeat center center / cover;
+}
+.dice3 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-three.png") no-repeat center center / cover;
+}
+.dice4 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-four.png") no-repeat center center / cover;
+}
+.dice5 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-five.png") no-repeat center center / cover;
+}
+.dice6 {
+  background: url("../Main/assets/images/diceImages/dice-six-faces-six.png") no-repeat center center / cover;
 }

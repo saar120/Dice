@@ -1,4 +1,5 @@
 import React from "react";
+import "../Player/Player.css";
 
 class Player extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Player extends React.Component {
 
   render() {
     return (
-      <div style={{ border: "1px solid black" }}>
+      <div className="player">
         <h1>PLAYER {this.props.id + 1}</h1>
         {this.isActive()}
         <h1>Total Score: {this.props.globalScore}</h1>
