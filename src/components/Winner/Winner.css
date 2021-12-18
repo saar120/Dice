@@ -4,8 +4,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(50% -8rem);
-  left: calc(50% -13rem);
   border-radius: 10px;
   height: 8rem;
   width: 13rem;

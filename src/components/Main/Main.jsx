@@ -4,6 +4,7 @@ import "../Main/Main.css";
 class Main extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { isWaiting: true };
     this.dices = [
       { class: "dice1" },
       { class: "dice2" },
@@ -27,6 +28,7 @@ class Main extends React.Component {
     }
     return this.dices[6].class;
   };
+
   render() {
     return (
       <div className="Main">
@@ -38,6 +40,7 @@ class Main extends React.Component {
           className="button"
           onClick={() => {
             this.props.diceRoll();
+            this.setState({ isWaiting: true });
           }}>
           Roll Dice
         </button>

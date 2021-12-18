@@ -131,6 +131,7 @@ class Game extends React.Component {
           }}
           dices={this.state.dices}
           targetPoints={this.state.pointsToWin}
+          waiting={true}
         />
         {this.renderPlayer(1)}
         {this.state.winner && <Winner winner={this.state.winner} />}
