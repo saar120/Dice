@@ -12,7 +12,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointsToWin: 10,
+      pointsToWin: 100,
       dices: [null, null],
       winner: "",
       players: [
@@ -54,8 +54,13 @@ class Game extends React.Component {
     this.setState({ dices: newDices }, () => {
       this.updateCurrentScore();
     });
+    this.playSound();
   };
-
+  playSound = () => {
+    const diceSound = new Audio("./audio/0004526.mp3");
+    diceSound.autoplay = true;
+    diceSound.play();
+  };
   updateCurrentScore = () => {
     const { players, dices } = this.state;
     players.forEach((player, i) => {

@@ -16,7 +16,7 @@ class Main extends React.Component {
   }
   renderDices = () => {
     const { dices } = this.props;
-    const isEqual = dices[0] === dices[1] ? "equal" : "";
+    const isEqual = dices[0] === dices[1] && dices[0] !== null ? "equal" : "";
     return dices.map((dice, i) => {
       return <div key={i} className={this.determineDice(dice) + " dice " + isEqual}></div>;
     });
@@ -41,7 +41,7 @@ class Main extends React.Component {
           }}>
           Roll Dice
         </button>
-        <button className="button" onClick={() => this.props.hold("Please Hold")}>
+        <button className="button" onClick={() => this.props.hold()}>
           Hold
         </button>
         <p>

@@ -15,11 +15,11 @@
 .dice {
   height: clamp(6rem, 10vw, 10rem);
   width: clamp(6rem, 10vw, 10rem);
-  border: 2px solid transparent;
+  border: 4px solid transparent;
   border-radius: 10px;
 }
 .equal {
-  border: 2px solid rgba(219, 71, 26, 0.849);
+  border: 4px solid rgba(219, 71, 26, 0.849);
 }
 
 .waiting-dice {
