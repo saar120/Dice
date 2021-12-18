@@ -15,8 +15,10 @@ class Main extends React.Component {
     ];
   }
   renderDices = () => {
-    return this.props.dices.map((dice, i) => {
-      return <div key={i} className={this.determineDice(dice) + " dice"}></div>;
+    const { dices } = this.props;
+    const isEqual = dices[0] === dices[1] ? "equal" : "";
+    return dices.map((dice, i) => {
+      return <div key={i} className={this.determineDice(dice) + " dice " + isEqual}></div>;
     });
   };
   determineDice = (dice) => {

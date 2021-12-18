@@ -11,6 +11,7 @@
   gap: 3vw;
   height: 100vh;
   background-color: #2e4c6d;
+  position: relative;
 }
 
 .button {

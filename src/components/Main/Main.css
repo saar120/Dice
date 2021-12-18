@@ -13,8 +13,13 @@
 }
 
 .dice {
-  height: 6rem;
-  width: 6rem;
+  height: clamp(6rem, 10vw, 10rem);
+  width: clamp(6rem, 10vw, 10rem);
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+.equal {
+  border: 2px solid rgba(219, 71, 26, 0.849);
 }
 
 .waiting-dice {

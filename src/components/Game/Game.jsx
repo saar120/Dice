@@ -2,6 +2,7 @@ import React from "react";
 import "../Game/Game.css";
 import Player from "../Player/Player";
 import Main from "../Main/Main";
+import Winner from "../Winner/Winner";
 
 function randomNum(num) {
   return Math.floor(Math.random() * (num + 1));
@@ -11,9 +12,9 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointsToWin: 100,
+      pointsToWin: 10,
       dices: [null, null],
-      winner: false,
+      winner: "",
       players: [
         { id: 0, currentScore: 0, globalScore: 0, active: true },
         { id: 1, currentScore: 0, globalScore: 0, active: false },
@@ -38,7 +39,7 @@ class Game extends React.Component {
   resetGame = () => {
     this.setState({
       dices: [null, null],
-      winner: false,
+      winner: "",
       players: [
         { id: 0, currentScore: 0, globalScore: 0, active: true },
         { id: 1, currentScore: 0, globalScore: 0, active: false },
@@ -60,7 +61,7 @@ class Game extends React.Component {
     players.forEach((player, i) => {
       if (player.active) {
         const dicesSum = dices.reduce((a, b) => a + b, 0) + 2;
-        if (dicesSum / 2 === dices[0] + 1 && dices[0] != null) {
+        if (dices[0] === dices[1] && dices[0] != null) {
           this.setState((prevState) => {
             return (prevState.players[i].currentScore = 0);
           });
@@ -79,13 +80,13 @@ class Game extends React.Component {
   };
 
   checkForWinner = () => {
-    if (
-      this.state.players[0].globalScore >= this.state.pointsToWin ||
-      this.state.players[1].globalScore >= this.state.pointsToWin
-    ) {
-      this.setState({ winner: true });
+    const { players, pointsToWin } = this.state;
+    const winner = players.find((player) => player.globalScore >= pointsToWin);
+    if (winner) {
+      this.setState({ winner: winner.id + 1 });
     }
   };
+
   updateGlobalScore = () => {
     const { players } = this.state;
     players.forEach((player, i) => {
@@ -109,7 +110,6 @@ class Game extends React.Component {
       });
     }
   };
-
   render() {
     return (
       <div className="Game">
@@ -128,7 +128,7 @@ class Game extends React.Component {
           targetPoints={this.state.pointsToWin}
         />
         {this.renderPlayer(1)}
-        {this.state.winner && <h1>winner</h1>}
+        {this.state.winner && <Winner winner={this.state.winner} />}
       </div>
     );
   }

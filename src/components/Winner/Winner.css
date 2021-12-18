@@ -1,0 +1,27 @@
+.Winner {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(50% -8rem);
+  left: calc(50% -13rem);
+  border-radius: 10px;
+  height: 8rem;
+  width: 13rem;
+  text-align: center;
+  background-color: #daddfc;
+  color: #fc997c;
+  animation: spin 2s;
+  z-index: 100;
+  box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
