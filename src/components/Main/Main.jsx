@@ -19,7 +19,7 @@ class Main extends React.Component {
     const { dices } = this.props;
     const isEqual = dices[0] === dices[1] && dices[0] !== null ? "equal" : "";
     return dices.map((dice, i) => {
-      return <div key={i} className={this.determineDice(dice) + " dice " + isEqual}></div>;
+      return <div key={Math.random()} className={this.determineDice(dice) + " dice " + isEqual}></div>;
     });
   };
   determineDice = (dice) => {
